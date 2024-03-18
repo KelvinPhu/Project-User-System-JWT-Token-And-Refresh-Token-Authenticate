@@ -1,0 +1,27 @@
+# configuration with application.yml file
+spring:
+  datasource:
+    url: jdbc:sqlserver://THIEN-PHU:1433;databaseName=ProjectJWTTokenAndRefreshToken;encrypt=false
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: sa
+    password: 123456789Thien_Phu
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+    show-sql: true
+
+---
+#set up JWT Token
+Kelvin:
+  app:
+    jwtSecret: "7NNdHNWWbyUK0AjbPCovcFEmzTcnC9CUwzCBZvrXl7irVN2zijJCVrJHEHhzvoZpCExEwEMj9w3r1ADrzbGFGZsULb3gsSk0n7Rp2vH1MjF3VdGIlhcN0WJSGbWJ5jyp"
+    jwtExpirationMs: 3600000
+    jwtRefreshExpirationMs: 86400000
+
+## For test
+#jwtExpirationMs: 60000
+#jwtRefreshExpirationMs: 120000
