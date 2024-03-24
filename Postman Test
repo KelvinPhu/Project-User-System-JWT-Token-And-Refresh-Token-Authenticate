@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "c0f7f8e2-f6db-4cd0-84d9-9f86009d4dbf",
+		"name": "Project User System JWT Token and Refresh Token",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30883121"
+	},
+	"item": [
+		{
+			"name": "User signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Ryna Phan\",\r\n    \"email\": \"rynaphan260298@gmail.com\",\r\n    \"password\": \"260298\",\r\n    \"role\": [\"admin\"]\r\n}\r\n\r\n// {\r\n//     \"username\": \"Kelvin\",\r\n//     \"email\": \"kelvin123@gmail.com\",\r\n//     \"password\": \"929503\",\r\n//     \"role\": [\"mod\", \"user\"]\r\n// }\r\n\r\n// {\r\n//     \"username\": \"kathy\",\r\n//     \"email\": \"kathy123@gmail.com\",\r\n//     \"password\": \"0123456\",\r\n//     \"role\": [\"user\"]\r\n// }\r\n\r\n// {\r\n//     \"username\": \"luca\",\r\n//     \"email\": \"luca23@gmail.com\",\r\n//     \"password\": \"9876543210\",\r\n//     \"role\": [\"user\"]\r\n// }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"kathy\",\r\n    \"password\": \"0123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Access public resource",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/test/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Access User protected resource",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrYXRoeSIsImlhdCI6MTcxMDcyNzg5OCwiZXhwIjoxNzEwNzMxNDk4fQ.lswTPnDSW4F1wzM5CHO6ZNFhGAjNHfc1ShIYpOEQ0K_GXmmNK6Sxi1h_bKGY9YaY6FLC6WGamlSvy3fG1HjJMA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSeW5hIFBoYW4iLCJpYXQiOjE3MTA2NDE2NjAsImV4cCI6MTcxMDcyODA2MH0.Goaryu485e-cGw34yN-bHcM7FID_6cMizA962ieIgzs",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/test/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Access Moderator protected resource",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJLZWx2aW4iLCJpYXQiOjE3MTA3Mjc5ODgsImV4cCI6MTcxMDczMTU4OH0.6R_aUXVnJ7LcKp7aZyjYqpUfEQvd982A-PIT3otuzVQIlsVK3izyz3OUjLdDOSDeAeYPkD1BYwZCC9zv9vkeXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/test/mod",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"mod"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Access Admin protected resource",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSeW5hIFBoYW4iLCJpYXQiOjE3MTA3MjgwMzMsImV4cCI6MTcxMDczMTYzM30.QfV7HwxkmXHQjKuM1O6eRBYCTZb5cGvTov1ILAfSwLsBntqWwAMqxNr55N6JlWvyQJGURSys0NhWJRPessZIwg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/test/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshToken\": \"d2ea2326-d49d-4ecd-900c-bc1a6197d2cc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/refresh-token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"refresh-token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
