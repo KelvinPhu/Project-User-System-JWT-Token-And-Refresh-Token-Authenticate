@@ -5,7 +5,7 @@
   <h1 align="center">Project User System JWT Token And Refresh Token Authenticate</h1>
 
   <p align="center">
-    An application designed to manage employee data effectively
+    Define data models for user management, and handle token expiration and renewal efficiently
     <br />
     <a href="https://github.com/KelvinPhu/Project-User-System-JWT-Token-And-Refresh-Token-Authenticate"><strong>Explore the docs »</strong></a>
     <br />
